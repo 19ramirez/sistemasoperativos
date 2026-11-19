@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Procesos | Apuntes Visuales ULL</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="page-header">
+        <a href="../index.html" class="back-link">← Volver al índice</a>
+        <h1>⚙️ Gestión de Procesos</h1>
+        <p class="lead">Procesos, comunicación entre procesos (IPC) y sincronización.</p>
+    </header>
+
+    <main>
+        <section class="content-grid">
+            <div class="info-card">
+                <h3>¿Qué es un proceso?</h3>
+                <p>Un programa en ejecución. Tiene su propio espacio de memoria, estado y recursos asignados por el SO.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Estados de un proceso</h3>
+                <ul>
+                    <li><strong>Nuevo:</strong> se está creando</li>
+                    <li><strong>Listo:</strong> esperando CPU</li>
+                    <li><strong>Ejecutando:</strong> en la CPU</li>
+                    <li><strong>Bloqueado:</strong> esperando E/S</li>
+                    <li><strong>Terminado:</strong> finalizó</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>Comunicación (IPC)</h3>
+                <ul>
+                    <li>Memoria compartida</li>
+                    <li>Pipes</li>
+                    <li>Sockets</li>
+                    <li>Colas de mensajes</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>Sincronización</h3>
+                <p>Cuando varios procesos comparten recursos hay que coordinar el acceso:</p>
+                <ul>
+                    <li>Semáforos</li>
+                    <li>Mutex</li>
+                    <li>Monitores</li>
+                    <li>Barreras</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="diagram-box">
+            <h3>Ciclo de vida de un proceso</h3>
+            <div class="flow">
+                <div class="flow-node">Nuevo</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-node">Listo</div>
+                <div class="flow-arrow">⇄</div>
+                <div class="flow-node">Ejecutando</div>
+                <div class="flow-arrow">⇄</div>
+                <div class="flow-node">Bloqueado</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-node">Terminado</div>
+            </div>
+        </section>
+    </main>
+
+    <footer><p>Basado en los apuntes de <a href="https://ull-esit-sistemas-operativos.github.io/ssoo-apuntes/" target="_blank">Sistemas Operativos — ULL</a></p></footer>
+    <script src="../script.js"></script>
+</body>
+</html>

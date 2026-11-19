@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios del SO | Apuntes Visuales ULL</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body class="featured-page">
+    <header class="page-header">
+        <a href="../index.html" class="back-link">← Volver al índice</a>
+        <h1>⭐ Servicios del Sistema Operativo</h1>
+        <p class="lead">El contrato entre tus programas y la máquina. Explicación visual con ejemplos reales de la interfaz de programación.</p>
+    </header>
+
+    <main>
+        <section class="intro-box">
+            <p>El sistema operativo es el <strong>intermediario</strong> entre el hardware y los programas. No puedes hablar directamente con el disco, la memoria o la red: necesitas <em>servicios</em> que el SO te ofrece.</p>
+            <p class="hint">👉 Haz clic en cada tarjeta para ver un ejemplo de cómo un programa <strong>usa</strong> ese servicio.</p>
+        </section>
+
+        <section class="services-grid">
+            <div class="service-card">
+                <div class="icon">🪟</div>
+                <h2>Interfaz de Usuario</h2>
+                <p class="short">CLI, GUI, batch…</p>
+                <div class="detail">
+                    <p>El SO te da una forma de comunicarte con él. Sin interfaz, la computadora sería inutilizable para humanos.</p>
+                    <pre><code># Ejemplo: shell de Linux
+$ ls -la
+$ mkdir proyecto
+$ python main.py</code></pre>
+                    <p class="api-note">🔌 <strong>Interfaz de programación:</strong> los programas usan <code>system()</code>, <code>exec()</code> o APIs gráficas (Win32, Cocoa) para interactuar con el usuario.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">💾</div>
+                <h2>Operaciones de E/S</h2>
+                <p class="short">Leer/escribir archivos y dispositivos</p>
+                <div class="detail">
+                    <p>Los programas <strong>no</strong> pueden tocar el disco directamente. El SO gestiona las operaciones de entrada/salida por seguridad y eficiencia.</p>
+                    <pre><code>// C: abrir un archivo
+FILE *f = fopen("datos.txt", "r");
+if (f) {
+    char buffer[100];
+    fgets(buffer, 100, f);
+    fclose(f);
+}</code></pre>
+                    <p class="api-note">🔌 <strong>Interfaz de programación:</strong> <code>open()</code>, <code>read()</code>, <code>write()</code>, <code>close()</code> son llamadas al sistema.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">📁</div>
+                <h2>Gestión de Archivos</h2>
+                <p class="short">Crear, borrar, buscar, listar</p>
+                <div class="detail">
+                    <p>El SO organiza el almacenamiento en archivos y directorios. Los programas piden operaciones por <strong>nombre</strong>, no por sectores del disco.</p>
+                    <pre><code># Python: manipular archivos
+import os
+os.makedirs("proyecto/src", exist_ok=True)
+with open("proyecto/README.md", "w") as f:
+    f.write("# Mi proyecto")
+print(os.listdir("proyecto"))</code></pre>
+                    <p class="api-note">🔌 <strong>Interfaz de programación:</strong> las librerías estándar (<code>os</code> en Python, <code>File</code> en Java, <code>fstream</code> en C++) envuelven las llamadas al sistema.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">🌐</div>
+                <h2>Comunicaciones</h2>
+                <p class="short">Procesos que hablan entre sí</p>
+                <div class="detail">
+                    <p>Los procesos necesitan intercambiar datos, ya sea en la misma máquina (pipes, sockets locales) o por red (TCP/IP).</p>
+                    <pre><code># Python: dos procesos se comunican
+import socket
+s = socket.socket()
+s.bind(('localhost', 12345))
+s.listen()
+conn, _ = s.accept()
+print("Recibido:", conn.recv(1024).decode())</code></pre>
+                    <p class="api-note">🔌 <strong>Interfaz de programación:</strong> <code>socket()</code>, <code>send()</code>, <code>recv()</code>; o abstracciones como <code>requests</code> en Python.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">⚠️</div>
+                <h2>Detección de Errores</h2>
+                <p class="short">El SO te avisa cuando algo sale mal</p>
+                <div class="detail">
+                    <p>Errores de hardware, de E/S, divisiones por cero, accesos ilegales a memoria. El SO los detecta y toma acción.</p>
+                    <pre><code># Python: manejo de errores de E/S
+try:
+    with open("no_existe.txt") as f:
+        contenido = f.read()
+except FileNotFoundError:
+    print("El SO reportó: archivo no encontrado")</code></pre>
+                    <p class="api-note">🔌 <strong>Interfaz de programación:</strong> excepciones, códigos de error (<code>errno</code> en C), <code>try/except</code> en lenguajes modernos.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">⚙️</div>
+                <h2>Asignación de Recursos</h2>
+                <p class="short">CPU, memoria, dispositivos</p>
+                <div class="detail">
+                    <p>Cuando varios programas compiten por CPU o RAM, el SO decide quién obtiene qué y cuándo.</p>
+                    <pre><code># Python: crear un proceso (el SO le asigna CPU)
+import multiprocessing
+
+def tarea(n):
+    print(f"Proceso {n} ejecutándose")
+
+if __name__ == "__main__":
+    procesos = [multiprocessing.Process(target=tarea, args=(i,)) for i in range(3)]
+    for p in procesos: p.start()
+    for p in procesos: p.join()</code></pre>
+                    <p class="api-note">🔌 <strong>Interfaz de programación:</strong> <code>fork()</code>, <code>CreateProcess()</code>, <code>multiprocessing</code> en Python.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="diagram-section">
+            <h2>🔁 Así fluye una petición de servicio</h2>
+            <div class="flow-diagram">
+                <div class="flow-step"><span class="flow-icon">📱</span><span class="flow-label">Tu programa</span></div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step"><span class="flow-icon">📚</span><span class="flow-label">Librería estándar<br><small>(ej. <code>open()</code>)</small></span></div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step"><span class="flow-icon">🔔</span><span class="flow-label">Llamada al sistema<br><small>(system call)</small></span></div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step"><span class="flow-icon">🖥️</span><span class="flow-label">Sistema Operativo<br><small>(gestor de archivos)</small></span></div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step"><span class="flow-icon">💽</span><span class="flow-label">Hardware<br><small>(disco, memoria…)</small></span></div>
+            </div>
+            <p class="diagram-caption">Los programas <strong>nunca</strong> hablan directamente con el hardware. Siempre pasan por el SO mediante llamadas al sistema.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Basado en los apuntes de <a href="https://ull-esit-sistemas-operativos.github.io/ssoo-apuntes/" target="_blank">Sistemas Operativos — ULL</a></p>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

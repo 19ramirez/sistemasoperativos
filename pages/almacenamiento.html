@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Almacenamiento | Apuntes Visuales ULL</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="page-header">
+        <a href="../index.html" class="back-link">← Volver al índice</a>
+        <h1>💾 Gestión del Almacenamiento</h1>
+        <p class="lead">Discos, SSD, volúmenes, sistemas de archivos.</p>
+    </header>
+
+    <main>
+        <section class="content-grid">
+            <div class="info-card">
+                <h3>Discos y SSD</h3>
+                <ul>
+                    <li><strong>HDD:</strong> discos magnéticos, acceso mecánico</li>
+                    <li><strong>SSD:</strong> memoria flash, sin partes móviles, mucho más rápido</li>
+                    <li>Se organizan en sectores, pistas y cilindros</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>Volúmenes</h3>
+                <p>Un volumen es una unidad lógica de almacenamiento. Puede abarcar uno o varios discos (RAID, LVM).</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Sistemas de archivos</h3>
+                <ul>
+                    <li><strong>FAT32 / NTFS</strong> (Windows)</li>
+                    <li><strong>ext4 / XFS</strong> (Linux)</li>
+                    <li><strong>APFS</strong> (macOS)</li>
+                </ul>
+                <p>Organizan archivos en directorios, con metadatos (permisos, fechas…).</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Implementación</h3>
+                <ul>
+                    <li>Asignación contigua, enlazada o indexada</li>
+                    <li>Bloques libres y ocupados (bitmap)</li>
+                    <li>Caché de disco para acelerar accesos</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="diagram-box">
+            <h3>Del archivo al disco</h3>
+            <div class="flow">
+                <div class="flow-node">Programa</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-node">Sistema de archivos</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-node">Bloques</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-node">Disco / SSD</div>
+            </div>
+        </section>
+    </main>
+
+    <footer><p>Basado en los apuntes de <a href="https://ull-esit-sistemas-operativos.github.io/ssoo-apuntes/" target="_blank">Sistemas Operativos — ULL</a></p></footer>
+    <script src="../script.js"></script>
+</body>
+</html>

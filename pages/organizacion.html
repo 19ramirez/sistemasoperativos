@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organización del SO | Apuntes Visuales ULL</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="page-header">
+        <a href="../index.html" class="back-link">← Volver al índice</a>
+        <h1>🧩 Organización de los Sistemas Operativos</h1>
+        <p class="lead">Componentes, modo dual y estructura interna.</p>
+    </header>
+
+    <main>
+        <section class="content-grid">
+            <div class="info-card">
+                <h3>Componentes del SO</h3>
+                <p>El SO se compone de varias capas que trabajan juntas:</p>
+                <ul>
+                    <li>Gestión de procesos</li>
+                    <li>Gestión de memoria</li>
+                    <li>Gestión de archivos</li>
+                    <li>Gestión de E/S</li>
+                    <li>Redes y seguridad</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>Modo dual (Kernel / Usuario)</h3>
+                <p>La CPU alterna entre dos modos para proteger el sistema:</p>
+                <ul>
+                    <li><strong>Modo kernel:</strong> acceso total al hardware</li>
+                    <li><strong>Modo usuario:</strong> acceso restringido, las peticiones pasan por <em>system calls</em></li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>Estructura del SO</h3>
+                <ul>
+                    <li><strong>Monolítico:</strong> todo el kernel en un solo bloque (Linux)</li>
+                    <li><strong>Microkernel:</strong> servicios mínimos en kernel, el resto en usuario (QNX)</li>
+                    <li><strong>Híbrido:</strong> mezcla de ambos (Windows, macOS)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="diagram-box">
+            <h3>Cambio de modo usuario → kernel</h3>
+            <div class="flow">
+                <div class="flow-node">Programa (usuario)</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-node">System call</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-node">Modo kernel</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-node">Hardware</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-node">Retorno a usuario</div>
+            </div>
+        </section>
+    </main>
+
+    <footer><p>Basado en los apuntes de <a href="https://ull-esit-sistemas-operativos.github.io/ssoo-apuntes/" target="_blank">Sistemas Operativos — ULL</a></p></footer>
+    <script src="../script.js"></script>
+</body>
+</html>

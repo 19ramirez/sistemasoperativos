@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Memoria | Apuntes Visuales ULL</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="page-header">
+        <a href="../index.html" class="back-link">← Volver al índice</a>
+        <h1>🧠 Gestión de la Memoria</h1>
+        <p class="lead">Reubicación, asignación, paginación y memoria virtual.</p>
+    </header>
+
+    <main>
+        <section class="content-grid">
+            <div class="info-card">
+                <h3>Reubicación de direcciones</h3>
+                <p>Los programas usan direcciones <em>lógicas</em>; el SO las traduce a <em>físicas</em> mediante la MMU.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Asignación de memoria</h3>
+                <ul>
+                    <li><strong>Contigua:</strong> particiones fijas o variables</li>
+                    <li><strong>No contigua:</strong> paginación y segmentación</li>
+                    <li>Fragmentación interna y externa</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>Paginación</h3>
+                <p>La memoria se divide en <strong>páginas</strong> (lógicas) y <strong>marcos</strong> (físicos), del mismo tamaño. La tabla de páginas traduce direcciones.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Memoria virtual</h3>
+                <p>Permite ejecutar programas más grandes que la RAM, usando el disco como extensión. El SO decide qué páginas están en memoria.</p>
+            </div>
+        </section>
+
+        <section class="diagram-box">
+            <h3>Traducción de dirección lógica → física</h3>
+            <div class="flow">
+                <div class="flow-node">Dir. lógica</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-node">Tabla de páginas</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-node">Dir. física</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-node">RAM</div>
+            </div>
+        </section>
+    </main>
+
+    <footer><p>Basado en los apuntes de <a href="https://ull-esit-sistemas-operativos.github.io/ssoo-apuntes/" target="_blank">Sistemas Operativos — ULL</a></p></footer>
+    <script src="../script.js"></script>
+</body>
+</html>
