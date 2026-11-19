@@ -20,7 +20,6 @@ Página web didáctica con los bloques principales de la asignatura de Sistemas 
 ├── memoria.html
 └── almacenamiento.html
 
-text
 
 ---
 
