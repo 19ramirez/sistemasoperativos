@@ -1,24 +1,26 @@
 # 🖥️ Sistemas Operativos — Apuntes Visuales ULL
 
-Página web didáctica con los bloques principales de la asignatura de Sistemas Operativos (apuntes de la ULL). El tema **Servicios del Sistema Operativo** está destacado y es el que se expone en clase.
+Página web didáctica con los bloques principales de la asignatura de Sistemas Operativos (apuntes de la ULL). El tema **Servicios del Sistema Operativo** está destacado visualmente y es el que se expone en clase.
 
-> Basado en: https://ull-esit-sistemas-operativos.github.io/ssoo-apuntes/
+> Basado en: [Apuntes de Sistemas Operativos — ULL](https://ull-esit-sistemas-operativos.github.io/ssoo-apuntes/)
 
 ---
 
-## 📁 Estructura
+## 📁 Estructura del proyecto
+
+```text
 /
-├── index.html ← portada con los temas
-├── style.css ← estilos
-├── script.js ← interactividad
+├── index.html              ← portada con los temas
+├── style.css               ← estilos globales
+├── script.js               ← interactividad
 ├── README.md
 └── pages/
-├── introduccion.html
-├── organizacion.html
-├── servicios.html ⭐ TEMA DESTACADO
-├── procesos.html
-├── memoria.html
-└── almacenamiento.html
+    ├── introduccion.html
+    ├── organizacion.html
+    ├── servicios.html      ⭐ TEMA DESTACADO
+    ├── procesos.html
+    ├── memoria.html
+    └── almacenamiento.html
 
 
 ---
